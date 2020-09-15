@@ -16,12 +16,13 @@ const app = props => {
 
  // state manage inside component
  const switchNameHandler = () => {
-  setPersonState: [
+  setPersonState({persons:[
     { name: "Max1111", age: "33333" },
     { name: "Max2222", age: "344444" },
-    { name: "Max3333", age: "355555" },
-  ],
+    { name: "Max3333", age: "355555" }
+  ]},
   otherState: 'other value'
+})
 };
 
 // this is a property so function call doesn't have any ()
@@ -32,7 +33,7 @@ eventHandler = () => {
       { name: "Luat1111", age: "33333" },
       { name: "Luat2222", age: "344444" },
       { name: "Luat3333", age: "355555" }
-    ]
+    ],
   }); //setState take obj as arg
 };
 
