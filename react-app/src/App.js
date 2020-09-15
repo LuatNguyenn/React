@@ -1,73 +1,68 @@
-import React, { useSate } from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import Person from "./Person/Person";
+import React, { Component } from 'react';
+import './App.css';
+import Person from './Person/Person';
 
-const app = props => {
-  const [personState, setPersonState] = useState ({
+class App extends Component {
+  state = {
     persons: [
-      { name: "Max1111", age: "33333" },
-      { name: "Max2222", age: "344444" },
-      { name: "Max3333", age: "355555" },
+      { name: 'Max', age: 28 },
+      { name: 'Manu', age: 29 },
+      { name: 'Stephanie', age: 26 }
     ],
-    otherState: 'other value'
-  });
+    otherState: 'some other value'
+  }
 
+  switchNameHandler = (newName) => {
+    // console.log('Was clicked!');
+    // DON'T DO THIS: this.state.persons[0].name = 'Maximilian';
+    this.setState( {
+      persons: [
+        { name: newName, age: 28 },
+        { name: 'Manu', age: 29 },
+        { name: 'Stephanie', age: 27 }
+      ]
+    } )
+  }
 
- // state manage inside component
- const switchNameHandler = () => {
-  setPersonState({persons:[
-    { name: "Max1111", age: "33333" },
-    { name: "Max2222", age: "344444" },
-    { name: "Max3333", age: "355555" }
-  ]},
-  otherState: 'other value'
-})
-};
+  nameChangedHandler = (event) => {
+    this.setState( {
+      persons: [
+        { name: 'Max', age: 28 },
+        { name: event.target.value, age: 29 },
+        { name: 'Stephanie', age: 26 }
+      ]
+    } )
+  }
 
-// this is a property so function call doesn't have any ()
-eventHandler = () => {
-  // this.state.persons[0].name = 'Luat'; DONT DO THIS
-  setPersonState({ //react function
-    persons: [
-      { name: "Luat1111", age: "33333" },
-      { name: "Luat2222", age: "344444" },
-      { name: "Luat3333", age: "355555" }
-    ],
-  }); //setState take obj as arg
-};
+  render () {
+
+    const style = {
+      background: 'grey', 
+      border: '1px solid black', 
+      padding: '8px'
+    }
 
 
     return (
       <div className="App">
-        <h1> ldksajfhg </h1>
-        <p>this is really work</p>
-        <button onClick={switchNameHandler}>Switch name</button>
-        <Person
-          name={personState.persons[0].name}
-          age={personState.persons[0].name}
-        />
-        <Person
-          name={personState.persons[1].name}
-          age={personState.persons[1].name}
-        ></Person>
-        <Person
-          name={personState.persons[2].name}
-          age={personState.persons[2].name}
-        />
+        <h1>Hi, I'm a React App</h1>
+        <p>This is really working!</p>
+        <button  style={style} onClick={() => this.switchNameHandler('Maximilian!!')}>Switch Name</button>
+        <Person 
+          name={this.state.persons[0].name} 
+          age={this.state.persons[0].age} />
+        <Person 
+          name={this.state.persons[1].name} 
+          age={this.state.persons[1].age}
+          click={this.switchNameHandler.bind(this, 'Max!')}
+          changed={this.nameChangedHandler} >My Hobbies: Racing</Person>
+        <Person 
+          name={this.state.persons[2].name} 
+          age={this.state.persons[2].age} />
       </div>
     );
-    //return React.createElement('div', {className:"App"}, React.createElement('h1', null, 'hi there')) //take 3 args, 1 is element we want to render to,
-    //can be your component,
-    //2 is configuration (optional), 3 childrend ( what nesed inside <div>)
+    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
-export default app;
-
-
-
-
-
-
-
+export default App;
