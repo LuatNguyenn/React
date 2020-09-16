@@ -10,10 +10,14 @@ class App extends Component {
     users: [{ username: "Luat Nguyen 1" }, { username: "Luat Nguyen 2" }],
   };
 
+  switchNameHandler = (event) => {
+    this.setState({users: [{ username: event.target.value}]})
+  }
+
   render() {
     return (
       <div className='App'>
-        <UserInput name='name' />
+        <UserInput onChange={this.switchNameHandler} name={this.state.users[0].username}/>
         <UserOutput userName={this.state.users[0].username} />
       </div>
     );

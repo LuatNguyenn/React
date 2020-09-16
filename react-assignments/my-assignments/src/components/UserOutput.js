@@ -1,8 +1,9 @@
 import React from "react";
+import './output.css';
 
 const userOutput = (props) => {
   return (
-    <div>
+    <div className="UserOutput">
       <p>
         lorem10ipsum dolor sit amet, consectetur adipiscingloremp lorem, sed do
         eiusmod tempor inc
