@@ -4,17 +4,17 @@ import Person from "./Person/Person";
 import Radium from "radium";
 import styled from "styled-components";
 
-const StyledButton = styled.button`
-background: ${props => props.alt ? 'red' : 'green'};
-border: 1px solid blue;
-color: white;
-padding: 8px;
-cursor: pointer;
-&:hover {
-  background: lightgreen;
-  color: black;
-},
-`;
+// const StyledButton = styled.button`
+// background: ${props => props.alt ? 'red' : 'green'};
+// border: 1px solid blue;
+// color: white;
+// padding: 8px;
+// cursor: pointer;
+// &:hover {
+//   background: lightgreen;
+//   color: black;
+// },
+// `;
 
 class App extends Component {
   state = {
