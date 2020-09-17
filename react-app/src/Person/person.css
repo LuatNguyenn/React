@@ -3,3 +3,8 @@
     margin: auto;
     border: black solid 1px;
 }
+@media screen and (min-width:500px){
+    .Person{
+        width:450px;
+    }
+}
