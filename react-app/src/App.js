@@ -122,9 +122,9 @@ class App extends Component {
         >
           Switch Name
         </button> */}
-        <StyledButton alt={this.state.showUser} onClick={() => this.showUserHandler()}>
+        <button alt={this.state.showUser} onClick={() => this.showUserHandler()}>
           Hide/Show User
-        </StyledButton>
+        </button>
         {person}
       </div>
 
